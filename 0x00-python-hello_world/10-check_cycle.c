@@ -14,30 +14,16 @@ int check_cycle(listint_t *list)
 
 	i = list;
 	j = list;
-	while (list && i && j->next)
-	{
-		list = list->next;
-		i = i->next->next;
+	if (list == NULL || list->next == NULL)
+		return (0);
+	do {
+		i = i->next;
+		j = j->next->next;
 
-		if (list == i)
-		{
-			list = j;
-			j =  i;
-			while (1)
-			{
-				i = j;
-				while (i->next != list && i->next != j)
-				{
-					i = i->next;
-				}
-				if (i->next == list)
-					break;
-
-				list = list->next;
-			}
+		if (i == j)
 			return (1);
-		}
 	}
+	while (j != NULL && j->next != NULL);
 
 	return (0);
 }
