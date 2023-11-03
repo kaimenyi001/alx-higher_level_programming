@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-# 0-add_integer.py
 """It's an integer addition function."""
 
 
@@ -10,10 +9,14 @@ def add_integer(a, b=98):
     Raises TypeError: If either of a or b is a non-integer and non-float.
     """
 
-    if not isinstance(a, int) and not isinstance(a, float):
+    if type(a) == float:
+        a = int(a)
+    if type(b) == float:
+        b = int(b)
+
+    if not isinstance(a, int) or isinstance(a, bool):
         raise TypeError("a must be an integer")
-    if not isinstance(b, int) and not isinstance(b, float):
+    if not isinstance(b, int) or isinstance(b, bool):
         raise TypeError("b must be an integer")
-    a = int(a)
-    b = int(b)
-    return (a + b)
+
+    return ( a + b )
