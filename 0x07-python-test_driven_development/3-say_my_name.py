@@ -5,7 +5,7 @@ A function that prints a name
 
 
 def say_my_name(first_name, last_name=""):
-    """ 
+    """
     Function that prints "My name is <first name> <last name>"
     Raises:
         TypeError: If first_name or last_name is not a string
